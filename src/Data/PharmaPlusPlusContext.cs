@@ -13,6 +13,7 @@ namespace PharmaPlusPlus.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Drug> Drugs { get; set; }
+        public DbSet<Cart> Carts { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,23 @@ namespace PharmaPlusPlus.Data
                         entity.ToString(),
                         entity =>
                             (Role)Enum.Parse(typeof(Role), entity)
+                    );
+            });
+
+            modelBuilder.Entity<Cart>().HasKey(cart => cart.UserCartId);
+            
+            modelBuilder.Entity<Cart>(entity =>
+            {
+                entity.Property(e => e.QuantityByDrugs)
+                    .HasConversion(
+                        v => JsonSerializer.Serialize(v, new JsonSerializerOptions(JsonSerializerDefaults.General)),
+                        v => JsonSerializer.Deserialize<Dictionary<Guid, int>>(v, new JsonSerializerOptions(JsonSerializerDefaults.General))
+                    );
+
+                entity.Property(e => e.TotalPriceByDrugs)
+                    .HasConversion(
+                        v => JsonSerializer.Serialize(v, new JsonSerializerOptions(JsonSerializerDefaults.General)),
+                        v => JsonSerializer.Deserialize<Dictionary<Guid, double>>(v, new JsonSerializerOptions(JsonSerializerDefaults.General))
                     );
             });
         }
