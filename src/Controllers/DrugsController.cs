@@ -11,7 +11,7 @@ namespace PharmaPlusPlus.Controllers
 
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Authorize(Policy = "UserPolicy")]
+    [Authorize(Roles = "Admin,User")]
     public class DrugsController : ControllerBase
     {
         private readonly PharmaPlusPlusContext _context;
@@ -60,7 +60,7 @@ namespace PharmaPlusPlus.Controllers
         }
 
         [HttpPut("updateDetails/{drugId:Guid}")]
-        [Authorize(Policy = "AdminPolicy")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateDrugDetails(Guid drugId, UpdateDrugRequest request)
         {
             var drug = await _context.Drugs.FindAsync(drugId);
@@ -79,7 +79,7 @@ namespace PharmaPlusPlus.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy = "AdminPolicy")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Drug>> PostDrug(CreateDrugRequest request)
         {
             var drug = new Drug
@@ -97,7 +97,7 @@ namespace PharmaPlusPlus.Controllers
         }
 
         [HttpDelete("{drugId:Guid}")]
-        [Authorize(Policy = "AdminPolicy")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteDrug(Guid drugId)
         {
             var drug = await _context.Drugs.FindAsync(drugId);

@@ -21,7 +21,7 @@ PharmaPlusPlus is an online application that offers a door-to-door delivery serv
 
 ### Current Features
 - **API Versioning**: API Versioning is made flexible using `Asp.Versioning` package.
-- **Authentication and Authorization**: Jwt based authentication, Policy based access for Admin and User roles, uses built-in password hashing
+- **Authentication and Authorization**: Jwt based authentication, Role based access for Admin and User roles (claims checking), uses built-in password hashing
 - **Entity Framework Core**: Been used extensively for managing entities and relations.
 
 ### Future Enhancements

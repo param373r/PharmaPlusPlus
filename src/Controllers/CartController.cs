@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PharmaPlusPlus.Data;
 using PharmaPlusPlus.Models;
-using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using PharmaPlusPlus.Models.Contracts;
 using Microsoft.AspNetCore.Authorization;
@@ -11,7 +10,7 @@ namespace PharmaPlusPlus.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Policy = "AdminPolicy")]
+    [Authorize(Roles = "Admin,User")]
     public class CartController : ControllerBase
     {
         private readonly PharmaPlusPlusContext _context;

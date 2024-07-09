@@ -1,16 +1,15 @@
-﻿using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PharmaPlusPlus.Data;
 using PharmaPlusPlus.Models;
 using PharmaPlusPlus.Models.Contracts;
-using PharmaPlusPlus.Services;
 
 namespace PharmaPlusPlus.Controllers
 {
 
     [ApiController]
+    [Authorize(Roles = "Admin,User")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class UserController : ControllerBase
     {
@@ -22,7 +21,7 @@ namespace PharmaPlusPlus.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = "AdminPolicy")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             var users = await _context.Users.ToListAsync();
@@ -30,7 +29,6 @@ namespace PharmaPlusPlus.Controllers
         }
 
         [HttpGet("{userId:Guid}")]
-        [Authorize(Policy = "UserPolicy")]
         public async Task<ActionResult<User>> GetUser(Guid userId)
         {
             var user = await _context.Users.FindAsync(userId);
@@ -44,7 +42,6 @@ namespace PharmaPlusPlus.Controllers
         }
 
         [HttpPut("{userId:Guid}")]
-        [Authorize(Policy = "UserPolicy")]
         public async Task<IActionResult> UpdateUser(Guid userId, UpdateUserRequest request)
         {
             var jwtUserId = Guid.Parse(HttpContext.User.Identity.Name);
@@ -64,7 +61,6 @@ namespace PharmaPlusPlus.Controllers
         }
 
         [HttpDelete("{userId:Guid}")]
-        [Authorize(Policy = "UserPolicy")]
         public async Task<IActionResult> DeleteUser(Guid userId)
         {
             var user = await _context.Users.FindAsync(userId);

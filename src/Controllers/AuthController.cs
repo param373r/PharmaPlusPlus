@@ -54,8 +54,8 @@ public class AuthController : ControllerBase
         return Ok(new RegisterResponse { UserId = user.Id });
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPost("register/admin")]
-    [Authorize(Policy = "AdminPolicy")]
     public async Task<IActionResult> RegisterAdmin([FromBody] RegisterAdminRequest request)
     {
         if (!ModelState.IsValid)
