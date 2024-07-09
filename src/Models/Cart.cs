@@ -1,6 +1,4 @@
 ﻿
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace PharmaPlusPlus.Models
 {
     public class Cart

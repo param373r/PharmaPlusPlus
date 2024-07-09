@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace PharmaPlusPlus.Controllers
 {
 
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [Authorize(Roles = "Admin,User")]
     public class CartController : ControllerBase

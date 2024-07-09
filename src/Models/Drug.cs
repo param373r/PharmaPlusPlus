@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PharmaPlusPlus.Models
+﻿namespace PharmaPlusPlus.Models
 {
     public class Drug
     {

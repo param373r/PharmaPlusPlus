@@ -6,7 +6,6 @@ using PharmaPlusPlus.Data;
 using Microsoft.OpenApi.Models;
 using System.Text.Json;
 using PharmaPlusPlus.Services;
-using System.Security.Claims;
 using System.Text.Json.Serialization;
 using Asp.Versioning;
 
