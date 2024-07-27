@@ -1,0 +1,2096 @@
+{
+	"info": {
+		"_postman_id": "d06ec9da-f3b1-4995-ada3-eddd55de6ff7",
+		"name": "PharmaPlusPlus",
+		"description": "This collection contains the API endpoints that manages the internal processes in PharmaPlusPlus - an online drug ordering application.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "23387424-d06ec9da-f3b1-4995-ada3-eddd55de6ff7"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "/register/self",
+					"id": "5031a430-16e9-4e97-abb0-e8f9e2cba3e6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Auth/register/self",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Auth",
+								"register",
+								"self"
+							]
+						},
+						"description": "Allows a new user to self register itself."
+					},
+					"response": [
+						{
+							"id": "a5541438-bc4a-4321-bf86-63f44c6cbf01",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userEmail\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Auth/register/self",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Auth",
+										"register",
+										"self"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/register/admin",
+					"id": "21db48ee-a500-4ddd-8428-2a8c662d80f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userEmail\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"role\": \"Admin\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Auth/register/admin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Auth",
+								"register",
+								"admin"
+							]
+						},
+						"description": "Allows an admin to register another user to the application. This endpoint requires authorized access. This endpoint also enables the admin to assign a role to the user at the time of registration."
+					},
+					"response": [
+						{
+							"id": "41d1b2ec-c4e2-4331-9310-e48b00221de8",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userEmail\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"role\": \"Admin\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Auth/register/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Auth",
+										"register",
+										"admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/login",
+					"id": "37f29e6f-6b5b-4edc-af95-9cbbe48a19f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Auth",
+								"login"
+							]
+						},
+						"description": "Verifies the user credentials and returns an accessToken on successful authentication"
+					},
+					"response": [
+						{
+							"id": "da31fa41-3483-4f38-9e83-8e85c0478450",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/changePassword",
+					"id": "f75fe5f2-6097-4121-82f7-a86ae7a16375",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userEmail\": \"<string>\",\n  \"oldPassword\": \"<string>\",\n  \"newPassword\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Auth/changePassword",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Auth",
+								"changePassword"
+							]
+						},
+						"description": "Allows a user to change their own password."
+					},
+					"response": [
+						{
+							"id": "c699f092-0001-4fdb-8eb9-4bf4538cfb77",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userEmail\": \"<string>\",\n  \"oldPassword\": \"<string>\",\n  \"newPassword\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Auth/changePassword",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Auth",
+										"changePassword"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/changeEmail/",
+					"id": "8553ba6b-5b6f-41cf-9951-e9057601eba9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"newEmail\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Auth/changeEmail/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Auth",
+								"changeEmail",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows a user to change their email address."
+					},
+					"response": [
+						{
+							"id": "9ee28de7-8989-4869-8b1d-48af14b61450",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"newEmail\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Auth/changeEmail/:userId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Auth",
+										"changeEmail",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "e9f450dd-ad87-452b-8f57-dce326729c52",
+			"description": "Contains all the endpoints relating to auth or user identity management"
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "/create",
+					"id": "6a3591ec-09e9-4912-abc2-339d24b2bac5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"drugId\": \"<uuid>\",\n  \"requiredQuantity\": \"<integer>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Cart",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Cart"
+							]
+						},
+						"description": "Allows a user to add a drug to their cart. Note that if the cart is empty, it will create a cart and add drug and it's specified quantity (given that the specified quantity is present in the store)"
+					},
+					"response": [
+						{
+							"id": "bd52d2cf-bbfa-4ba1-8dd7-6c695a4a3598",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"drugId\": \"<uuid>\",\n  \"requiredQuantity\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/get",
+					"id": "b36c4d0d-ccf3-4a44-9426-5a8ece159a81",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Cart",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Cart"
+							]
+						},
+						"description": "This endpoint gets all the drugs added to the cart and their specified quantity requested."
+					},
+					"response": [
+						{
+							"id": "a7e5deec-7eaf-41fe-809c-6a474078ac57",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Cart",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/deleteItem",
+					"id": "73430dcf-db55-4b99-ae98-9d66b6e2a57e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Cart/deleteItem/:drugId?quantity=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Cart",
+								"deleteItem",
+								":drugId"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "<integer>"
+								}
+							],
+							"variable": [
+								{
+									"key": "drugId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows a user to delete a particular quantity of the specified drug from the cart."
+					},
+					"response": [
+						{
+							"id": "455e11f0-6064-44d3-afb8-8cef839442d9",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Cart/deleteItem/:drugId?quantity=<integer>",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Cart",
+										"deleteItem",
+										":drugId"
+									],
+									"query": [
+										{
+											"key": "quantity",
+											"value": "<integer>"
+										}
+									],
+									"variable": [
+										{
+											"key": "drugId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/deleteCart",
+					"id": "1b86994b-ed3e-4d75-8a34-4f95e9ef2092",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Cart/deleteCart?cartId=<uuid>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Cart",
+								"deleteCart"
+							],
+							"query": [
+								{
+									"key": "cartId",
+									"value": "<uuid>"
+								}
+							]
+						},
+						"description": "This endpoint deletes the entire cart and removes all the drugs in it."
+					},
+					"response": [
+						{
+							"id": "6054a584-191b-4a6d-86ca-a1769539f7a7",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Cart/deleteCart?cartId=<uuid>",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Cart",
+										"deleteCart"
+									],
+									"query": [
+										{
+											"key": "cartId",
+											"value": "<uuid>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "aaf070b8-f62c-4f2d-9ebc-57c759565605",
+			"description": "Contains all the endpoints that are used to manage cart related operations, such as adding a drug to the cart with the specified quantity."
+		},
+		{
+			"name": "Drugs",
+			"item": [
+				{
+					"name": "/getAll",
+					"id": "ddad5fec-1db6-4b65-a89c-08338dbd6f56",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Drugs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Drugs"
+							]
+						},
+						"description": "Retrieves all the drug details present in the database."
+					},
+					"response": [
+						{
+							"id": "5500d014-6cdb-47bc-ab2d-70b6896808b5",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Drugs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Drugs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/create",
+					"id": "a2dd4a34-8228-476d-aa1c-8fdd6cdaa2ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"drugName\": \"<string>\",\n  \"drugDescription\": \"<string>\",\n  \"drugPrice\": \"<double>\",\n  \"drugQuantityAvailable\": \"<long>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Drugs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Drugs"
+							]
+						},
+						"description": "Allows an admin to add a drug with it's specified details to the database."
+					},
+					"response": [
+						{
+							"id": "72459805-e1e1-4b09-aec7-3e99f7cc20cd",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"drugName\": \"<string>\",\n  \"drugDescription\": \"<string>\",\n  \"drugPrice\": \"<double>\",\n  \"drugQuantityAvailable\": \"<long>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Drugs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Drugs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "6da8602c-6d89-44ef-8227-20e82c487522"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<uuid>\",\n  \"drugName\": \"<string>\",\n  \"drugDescription\": \"<string>\",\n  \"drugPrice\": \"<double>\",\n  \"drugQuantityAvailable\": \"<long>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/getByDrugId",
+					"id": "7af3828c-f7ab-447e-b173-0ff6a458e54a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Drugs/:drugId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Drugs",
+								":drugId"
+							],
+							"variable": [
+								{
+									"key": "drugId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Retrieves a drug by it's specified Id."
+					},
+					"response": [
+						{
+							"id": "4f2b962f-7f4a-49d3-b4ed-e599ebb0cca1",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Drugs/:drugId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Drugs",
+										":drugId"
+									],
+									"variable": [
+										{
+											"key": "drugId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "e14cef2c-3ff4-4341-9844-83ee48013e5d"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<uuid>\",\n  \"drugName\": \"<string>\",\n  \"drugDescription\": \"<string>\",\n  \"drugPrice\": \"<double>\",\n  \"drugQuantityAvailable\": \"<long>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/delete",
+					"id": "667edbb0-0df7-48b6-8eb3-1bb869517899",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Drugs/:drugId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Drugs",
+								":drugId"
+							],
+							"variable": [
+								{
+									"key": "drugId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows an admin to delete the drug from the database."
+					},
+					"response": [
+						{
+							"id": "bb682a87-742b-4376-b15d-427ba725c282",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Drugs/:drugId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Drugs",
+										":drugId"
+									],
+									"variable": [
+										{
+											"key": "drugId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/getByDrugName",
+					"id": "85864d97-d769-4b21-93de-c71fed03fd53",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Drugs/:drugName",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Drugs",
+								":drugName"
+							],
+							"variable": [
+								{
+									"key": "drugName",
+									"value": "<string>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Retrieves a drug by a specified substring in the name."
+					},
+					"response": [
+						{
+							"id": "0a8e82b3-152f-4a14-b2e0-590acea94ec4",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Drugs/:drugName",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Drugs",
+										":drugName"
+									],
+									"variable": [
+										{
+											"key": "drugName"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/update",
+					"id": "8819697d-6ce5-484f-94a8-4ab6cb9bd480",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"drugName\": \"<string>\",\n  \"drugDescription\": \"<string>\",\n  \"drugPrice\": \"<double>\",\n  \"drugQuantityAvailable\": \"<long>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Drugs/updateDetails/:drugId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Drugs",
+								"updateDetails",
+								":drugId"
+							],
+							"variable": [
+								{
+									"key": "drugId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows an admin to update the drug details in the database."
+					},
+					"response": [
+						{
+							"id": "408b7cdf-b744-404a-b7a0-096ddf047d71",
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"drugName\": \"<string>\",\n  \"drugDescription\": \"<string>\",\n  \"drugPrice\": \"<double>\",\n  \"drugQuantityAvailable\": \"<long>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Drugs/updateDetails/:drugId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Drugs",
+										"updateDetails",
+										":drugId"
+									],
+									"variable": [
+										{
+											"key": "drugId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "ca34d04b-fcae-4490-a443-97827e466332",
+			"description": "Contains all the endpoints related to CRUD in drugs table, ranging from adding a drug to store to searching the drugs. Command Operations like Creating updating and deleting a drug quantity requires the \"Admin\" authorization."
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "/getAll",
+					"id": "1ef4146d-806e-4776-88b9-46f07a8f7900",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Order"
+							]
+						},
+						"description": "Allows an admin to retrieve all the orders made by the users. If a user is making the request, then retrieves all the orders made by that particular user."
+					},
+					"response": [
+						{
+							"id": "c454b3f3-856f-415a-adf9-200c8b780f78",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/getOrdersByUserId",
+					"id": "34f2f79c-6865-421d-b1de-91deadd0d20c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Order/getOrdersByUserId/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Order",
+								"getOrdersByUserId",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows an admin to get the list of orders made by a particular user."
+					},
+					"response": [
+						{
+							"id": "4d881a5f-9f62-493a-81ce-de8760ddcd41",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Order/getOrdersByUserId/:userId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										"getOrdersByUserId",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/getOrderByOrderId",
+					"id": "ea736cf8-d5c2-4329-a805-5a98d9cd16b3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Order/getOrderByOrderId/:orderId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Order",
+								"getOrderByOrderId",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows an admin to retrieve a particular order by the specified order Id. If the request is made by a user, then it will return the order if it was created by that particular user only."
+					},
+					"response": [
+						{
+							"id": "f45fbe13-7e05-4a3d-8dc9-862acd0ac4a2",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Order/getOrderByOrderId/:orderId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										"getOrderByOrderId",
+										":orderId"
+									],
+									"variable": [
+										{
+											"key": "orderId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/submitOrder",
+					"id": "13609dbe-0fde-499a-9d41-16eb1981ec58",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Order/submitOrder",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Order",
+								"submitOrder"
+							]
+						},
+						"description": "Allows a user to submit the final list of drugs added to the cart and produce a static copy of with an order Id."
+					},
+					"response": [
+						{
+							"id": "5b53599b-15b7-4bbf-8a31-bb971a1c2587",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Order/submitOrder",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										"submitOrder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/updateOrderStatus",
+					"id": "1f83a1d7-29b5-4e97-aa32-cd9aa0338736",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Order/updateOrderStatus/:orderId?orderStatus=ORDER_PROCESSING",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Order",
+								"updateOrderStatus",
+								":orderId"
+							],
+							"query": [
+								{
+									"key": "orderStatus",
+									"value": "ORDER_PROCESSING"
+								}
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows an admin to update the order status by given order Id to inform how far the order has processed."
+					},
+					"response": [
+						{
+							"id": "39d70129-4156-4ffe-aa50-ce21c1d13292",
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Order/updateOrderStatus/:orderId?orderStatus=ORDER_PROCESSING",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										"updateOrderStatus",
+										":orderId"
+									],
+									"query": [
+										{
+											"key": "orderStatus",
+											"value": "ORDER_PROCESSING"
+										}
+									],
+									"variable": [
+										{
+											"key": "orderId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/delete",
+					"id": "5eb391ba-94c0-4629-8727-ce9104b4424a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/Order/:orderId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Order",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows a user to delete the order created."
+					},
+					"response": [
+						{
+							"id": "a033d05d-d5c1-4c86-b1b0-b3a3795135c0",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/Order/:orderId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"Order",
+										":orderId"
+									],
+									"variable": [
+										{
+											"key": "orderId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "ad4bc33f-2c23-4481-91b9-0b2010571974",
+			"description": "Contains all the endpoints for ordering of drugs related operations."
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/getAll",
+					"id": "80460a51-1d1a-4ed6-b565-75e0e7dbcf87",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/User",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"User"
+							]
+						},
+						"description": "Allows an admin to get a list of all the users in the database. Only available for admins."
+					},
+					"response": [
+						{
+							"id": "00de33aa-1875-4deb-b1c3-52a59590215a",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/User",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"User"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "b97c5b14-5caf-4d0e-a2f8-e6f59c5b6a64"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"username\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"userEmail\": \"<string>\",\n    \"role\": \"User\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"username\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"password\": \"<string>\",\n    \"userEmail\": \"<string>\",\n    \"role\": \"Admin\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "/updateUser",
+					"id": "a607dfe1-936f-46a4-9def-f5812a817cd7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/User/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"User",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows a user to update it's own properties. If the request is made by an admin account then it will allow the updation of properties with the specified user id."
+					},
+					"response": [
+						{
+							"id": "f251226d-229f-423d-8925-0926cded518b",
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/api/v1/User/:userId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"User",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/deleteUser",
+					"id": "af5101ca-ea80-4acd-a418-1dba599fea97",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/User/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"User",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Allows a user to delete their account."
+					},
+					"response": [
+						{
+							"id": "b323c75f-eae4-411d-9416-0b7a519215ac",
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/User/:userId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"User",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/getUserByUserId",
+					"id": "1862d478-0e97-4c13-a213-e9425d5db407",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/User/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"User",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "<uuid>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "For a specified user Id (if known to a user), allows even user to access other user's profile."
+					},
+					"response": [
+						{
+							"id": "92c880d9-5235-4c8b-993b-23f6c140cc50",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									},
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5001/api/v1/User/:userId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"api",
+										"v1",
+										"User",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"uuid": "61e8c0b5-2623-44be-806c-e535e3d17fba"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<uuid>\",\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userEmail\": \"<string>\",\n  \"role\": \"Admin\"\n}"
+						}
+					]
+				}
+			],
+			"id": "c00dad78-decd-4666-b92a-0c9a2e671121",
+			"description": "Contains all the endpoints related to managing generic user properties"
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "eea4b19e-1b95-49c3-a906-ac52a4d1df06",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9d4c14c1-c5e9-47e2-a840-77da365dae1f",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d8187378-25c6-4093-afa7-3afce9aea9da",
+			"key": "baseUrl",
+			"value": "http://localhost:5001"
+		}
+	]
+}
